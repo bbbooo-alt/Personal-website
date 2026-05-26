@@ -5,6 +5,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ThemeProvider from "@/components/providers/ThemeProvider";
 import { createMetadata } from "@/lib/metadata";
+import GradientBackground from "@/components/effects/GradientBackground";
+import CursorGlow from "@/components/effects/CursorGlow";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +33,8 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col bg-black text-white">
         <ThemeProvider>
+          <GradientBackground />
+          <CursorGlow />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />

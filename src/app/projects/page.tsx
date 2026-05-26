@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Container from "@/components/layout/Container";
 import SectionTitle from "@/components/common/SectionTitle";
 import ProjectCard from "@/components/project/ProjectCard";
+import TiltCard from "@/components/effects/TiltCard";
 import { projects } from "@/data/projects";
 
 export default function ProjectsPage() {
@@ -18,15 +19,16 @@ export default function ProjectsPage() {
 
         <div className="grid gap-6 sm:grid-cols-2">
           {projects.map((project, index) => (
-            <ProjectCard
+            <motion.div
               key={project.slug}
-              slug={project.slug}
-              title={project.title}
-              description={project.description}
-              tags={project.tech}
-              year={project.year}
-              index={index}
-            />
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <TiltCard className="h-full" tiltAmount={8}>
+                <ProjectCard project={project} index={index} />
+              </TiltCard>
+            </motion.div>
           ))}
         </div>
 
