@@ -1,5 +1,5 @@
 import Container from "@/components/layout/Container";
-import Button from "@/components/ui/Button";
+import ContactForm from "@/components/contact/ContactForm";
 import { createMetadata } from "@/lib/metadata";
 import { Mail } from "lucide-react";
 
@@ -88,28 +88,9 @@ export default function ContactPage() {
 
         <div className="mt-16 rounded-2xl border border-zinc-800 bg-zinc-900/30 p-8">
           <h2 className="text-lg font-medium text-white">发送消息</h2>
-          <form className="mt-6 space-y-4">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <input
-                type="text"
-                placeholder="姓名"
-                className="w-full rounded-xl border border-zinc-800 bg-black/50 px-4 py-3 text-white placeholder-zinc-600 transition-colors focus:border-cyan-500/50 focus:outline-none"
-              />
-              <input
-                type="email"
-                placeholder="邮箱"
-                className="w-full rounded-xl border border-zinc-800 bg-black/50 px-4 py-3 text-white placeholder-zinc-600 transition-colors focus:border-cyan-500/50 focus:outline-none"
-              />
-            </div>
-            <textarea
-              rows={4}
-              placeholder="请输入您的消息..."
-              className="w-full resize-none rounded-xl border border-zinc-800 bg-black/50 px-4 py-3 text-white placeholder-zinc-600 transition-colors focus:border-cyan-500/50 focus:outline-none"
-            />
-            <Button type="submit" variant="primary">
-              发送消息
-            </Button>
-          </form>
+          <div className="mt-6">
+            <ContactForm />
+          </div>
         </div>
       </section>
     </Container>
