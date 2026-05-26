@@ -2,47 +2,49 @@ import Container from "@/components/Container";
 
 export default function HomePage() {
   return (
-    <Container className="py-32">
-      <section className="flex min-h-[60vh] flex-col justify-center">
-        <div className="max-w-4xl">
-          <p className="text-sm font-medium uppercase tracking-widest text-zinc-500">
-            Frontend Developer
-          </p>
-          
-          <h1 className="mt-6 text-5xl font-light leading-tight tracking-tight text-white sm:text-7xl">
-            尊敬的ggb大王
-          </h1>
+    <Container className="py-24">
+      <section className="flex min-h-[70vh] flex-col justify-center">
+        <p className="mb-6 text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">
+          Portfolio 2024
+        </p>
 
-          <p className="mt-8 max-w-xl text-xl leading-relaxed text-zinc-400">
-            创造优雅且高性能的 Web 体验。
-            <br />
-            专注于 React 生态系统与现代前端技术。
-          </p>
+        <h1 className="max-w-4xl text-5xl font-light leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
+          Building modern
+          <br />
+          web experiences
+        </h1>
 
-          <div className="mt-12 flex gap-4">
-            <a
-              href="/projects"
-              className="rounded-full bg-white px-8 py-3 text-sm font-medium text-black transition-all hover:bg-zinc-200"
-            >
-              View Projects
-            </a>
-            <a
-              href="/contact"
-              className="rounded-full border border-zinc-700 px-8 py-3 text-sm font-medium text-white transition-all hover:border-white"
-            >
-              Get in Touch
-            </a>
-          </div>
+        <p className="mt-8 max-w-xl text-lg leading-relaxed text-zinc-400">
+          Frontend developer focused on performance, interaction and clean UI.
+          专注于 React 生态系统与现代前端技术。
+        </p>
+
+        <div className="mt-10 flex flex-wrap gap-4">
+          <a
+            href="/projects"
+            className="rounded-xl bg-white px-8 py-3.5 text-sm font-semibold text-black transition-all hover:bg-zinc-200"
+          >
+            View Projects
+          </a>
+          <a
+            href="/contact"
+            className="rounded-xl border border-zinc-700 px-8 py-3.5 text-sm font-medium text-white transition-all hover:border-white hover:bg-white/5"
+          >
+            Contact Me
+          </a>
         </div>
 
-        <div className="mt-24 grid grid-cols-3 gap-8 border-t border-zinc-900 pt-12">
+        <div className="mt-20 grid grid-cols-2 gap-8 border-t border-zinc-900 pt-12 sm:grid-cols-4">
           {[
-            { number: "5+", label: "Years Experience" },
-            { number: "50+", label: "Projects Completed" },
-            { number: "100%", label: "Client Satisfaction" },
+            { number: "5+", label: "Years" },
+            { number: "50+", label: "Projects" },
+            { number: "20+", label: "Clients" },
+            { number: "100%", label: "Satisfaction" },
           ].map((stat) => (
             <div key={stat.label}>
-              <p className="text-3xl font-light text-white">{stat.number}</p>
+              <p className="text-3xl font-light text-white sm:text-4xl">
+                {stat.number}
+              </p>
               <p className="mt-1 text-sm text-zinc-500">{stat.label}</p>
             </div>
           ))}
