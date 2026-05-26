@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/cn";
 
 const navItems = [
   { href: "/", label: "首页" },
@@ -28,11 +29,12 @@ export default function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`relative text-sm font-medium transition-colors duration-300 ${
+              className={cn(
+                "relative text-sm font-medium transition-colors duration-300",
                 pathname === item.href
                   ? "text-white"
                   : "text-zinc-400 hover:text-white"
-              }`}
+              )}
             >
               {item.label}
               {pathname === item.href && (

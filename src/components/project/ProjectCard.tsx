@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { fadeUp, cardHover } from "@/lib/motion";
+import { cn } from "@/lib/cn";
 
 interface ProjectCardProps {
   slug: string;
@@ -12,6 +13,7 @@ interface ProjectCardProps {
   tags?: string[];
   year?: string;
   index?: number;
+  className?: string;
 }
 
 export default function ProjectCard({
@@ -21,6 +23,7 @@ export default function ProjectCard({
   tags = [],
   year,
   index = 0,
+  className,
 }: ProjectCardProps) {
   return (
     <motion.div
@@ -29,6 +32,7 @@ export default function ProjectCard({
       whileInView="animate"
       viewport={{ once: true, margin: "-50px" }}
       transition={{ delay: index * 0.1 }}
+      className={className}
     >
       <Link href={`/projects/${slug}`} className="block">
         <motion.article

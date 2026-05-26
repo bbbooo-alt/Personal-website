@@ -2,17 +2,20 @@
 
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/motion";
+import { cn } from "@/lib/cn";
 
 interface SectionTitleProps {
   title: string;
   subtitle?: string;
   align?: "left" | "center";
+  className?: string;
 }
 
 export default function SectionTitle({
   title,
   subtitle,
   align = "left",
+  className,
 }: SectionTitleProps) {
   return (
     <motion.div
@@ -20,7 +23,11 @@ export default function SectionTitle({
       initial="initial"
       whileInView="animate"
       viewport={{ once: true, margin: "-100px" }}
-      className={`mb-12 ${align === "center" ? "text-center" : ""}`}
+      className={cn(
+        "mb-12",
+        align === "center" && "text-center",
+        className
+      )}
     >
       {subtitle && (
         <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">

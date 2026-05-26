@@ -1,4 +1,10 @@
-import Container from "@/components/Container";
+import Container from "@/components/layout/Container";
+import { createMetadata } from "@/lib/metadata";
+
+export const metadata = createMetadata({
+  title: "关于",
+  description: "了解更多关于我的技能、经验和工作方式",
+});
 
 const skills = [
   { category: "前端", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },

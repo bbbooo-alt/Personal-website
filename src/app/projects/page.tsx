@@ -1,19 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Container from "@/components/Container";
-import SectionTitle from "@/components/SectionTitle";
-import ProjectCard from "@/components/ProjectCard";
+import Container from "@/components/layout/Container";
+import SectionTitle from "@/components/common/SectionTitle";
+import ProjectCard from "@/components/project/ProjectCard";
 import { projects } from "@/data/projects";
 
 export default function ProjectsPage() {
   return (
     <Container className="py-20">
       <section>
-        <SectionTitle
-          subtitle="精选作品"
-          title="全部项目"
-        />
+        <SectionTitle subtitle="精选作品" title="全部项目" />
         <p className="mb-12 max-w-2xl text-lg text-zinc-400">
           精选项目展示，每一个都代表着对技术的探索与对设计的追求。
           点击查看项目详情。
@@ -40,9 +37,7 @@ export default function ProjectsPage() {
           transition={{ delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <p className="text-zinc-500">
-            共 {projects.length} 个项目
-          </p>
+          <p className="text-zinc-500">共 {projects.length} 个项目</p>
         </motion.div>
       </section>
     </Container>

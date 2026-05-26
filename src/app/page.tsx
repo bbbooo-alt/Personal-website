@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Container from "@/components/Container";
-import SectionTitle from "@/components/SectionTitle";
-import ProjectCard from "@/components/ProjectCard";
+import Container from "@/components/layout/Container";
+import SectionTitle from "@/components/common/SectionTitle";
+import ProjectCard from "@/components/project/ProjectCard";
+import Button from "@/components/ui/Button";
 import { fadeUp, staggerContainer, scaleOnHover, tapScale } from "@/lib/motion";
 
 const skills = [
@@ -85,22 +86,12 @@ export default function HomePage() {
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-10 flex flex-wrap gap-4">
-              <motion.a
-                href="/projects"
-                whileHover={scaleOnHover}
-                whileTap={tapScale}
-                className="rounded-xl bg-white px-8 py-3.5 text-sm font-semibold text-black transition-colors hover:bg-zinc-200"
-              >
+              <Button href="/projects" variant="primary" size="lg">
                 查看项目
-              </motion.a>
-              <motion.a
-                href="/contact"
-                whileHover={scaleOnHover}
-                whileTap={tapScale}
-                className="rounded-xl border border-zinc-700 px-8 py-3.5 text-sm font-medium text-white transition-all hover:border-white hover:bg-white/5"
-              >
+              </Button>
+              <Button href="/contact" variant="secondary" size="lg">
                 联系我
-              </motion.a>
+              </Button>
             </motion.div>
 
             <motion.div
@@ -128,10 +119,7 @@ export default function HomePage() {
       {/* 技能区域 */}
       <section className="relative py-20">
         <Container>
-          <SectionTitle
-            subtitle="专业技能"
-            title="技术栈"
-          />
+          <SectionTitle subtitle="专业技能" title="技术栈" />
           <motion.div
             variants={staggerContainer}
             initial="initial"
@@ -158,10 +146,7 @@ export default function HomePage() {
       {/* 精选项目区域 */}
       <section className="relative py-20">
         <Container>
-          <SectionTitle
-            subtitle="精选作品"
-            title="特色项目"
-          />
+          <SectionTitle subtitle="精选作品" title="特色项目" />
           <div className="grid gap-6 sm:grid-cols-2">
             {featuredProjects.map((project, index) => (
               <ProjectCard
@@ -181,17 +166,22 @@ export default function HomePage() {
             transition={{ delay: 0.4 }}
             className="mt-12 text-center"
           >
-            <motion.a
-              href="/projects"
-              whileHover={scaleOnHover}
-              whileTap={tapScale}
-              className="inline-flex items-center gap-2 rounded-xl border border-zinc-700 px-6 py-3 text-sm font-medium text-white transition-all hover:border-cyan-500/50 hover:text-cyan-400"
-            >
+            <Button href="/projects" variant="secondary">
               查看全部项目
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
               </svg>
-            </motion.a>
+            </Button>
           </motion.div>
         </Container>
       </section>
@@ -226,8 +216,18 @@ export default function HomePage() {
                 className="mt-8 inline-flex items-center gap-2 text-cyan-400 transition-colors hover:text-cyan-300"
               >
                 了解更多关于我
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </motion.a>
             </motion.div>
@@ -283,14 +283,11 @@ export default function HomePage() {
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
               有项目想法或合作意向？欢迎随时联系我，让我们一起创造精彩。
             </p>
-            <motion.a
-              href="/contact"
-              whileHover={scaleOnHover}
-              whileTap={tapScale}
-              className="mt-8 inline-flex rounded-xl bg-white px-8 py-3.5 text-sm font-semibold text-black transition-colors hover:bg-zinc-200"
-            >
-              联系我
-            </motion.a>
+            <div className="mt-8">
+              <Button href="/contact" variant="primary" size="lg">
+                联系我
+              </Button>
+            </div>
           </motion.div>
         </Container>
       </section>
