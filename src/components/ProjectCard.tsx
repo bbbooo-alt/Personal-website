@@ -1,25 +1,42 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { fadeUp, cardHover } from "@/lib/motion";
 
 interface ProjectCardProps {
   title: string;
   description: string;
   tags?: string[];
+  index?: number;
 }
 
 export default function ProjectCard({
   title,
   description,
   tags = [],
+  index = 0,
 }: ProjectCardProps) {
   return (
-    <article className="group relative rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/50 hover:bg-zinc-900/50">
+    <motion.article
+      variants={fadeUp}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ delay: index * 0.1 }}
+      whileHover={cardHover}
+      className="group relative rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6 transition-colors duration-300 hover:border-cyan-500/50 hover:bg-zinc-900/50"
+    >
       <div className="flex items-start justify-between">
-        <h2 className="text-xl font-medium text-white transition-colors group-hover:text-cyan-400">
+        <h3 className="text-xl font-medium text-white transition-colors group-hover:text-cyan-400">
           {title}
-        </h2>
-        <ArrowUpRight className="h-5 w-5 text-zinc-600 transition-all group-hover:text-cyan-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </h3>
+        <motion.div
+          whileHover={{ x: 2, y: -2 }}
+          transition={{ type: "spring", stiffness: 400 }}
+        >
+          <ArrowUpRight className="h-5 w-5 text-zinc-600 transition-colors group-hover:text-cyan-400" />
+        </motion.div>
       </div>
 
       <p className="mt-3 text-sm leading-relaxed text-zinc-400">
@@ -38,6 +55,6 @@ export default function ProjectCard({
           ))}
         </div>
       )}
-    </article>
+    </motion.article>
   );
 }
