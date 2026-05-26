@@ -5,15 +5,14 @@ import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
-import { fadeUp } from "@/lib/motion";
 
 export default function ProjectsPage() {
   return (
     <Container className="py-20">
       <section>
         <SectionTitle
-          subtitle="Selected Work"
-          title="All Projects"
+          subtitle="精选作品"
+          title="全部项目"
         />
         <p className="mb-12 max-w-2xl text-lg text-zinc-400">
           精选项目展示，每一个都代表着对技术的探索与对设计的追求。

@@ -1,9 +1,9 @@
 import Container from "@/components/Container";
 
 const skills = [
-  { category: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
-  { category: "Backend", items: ["Node.js", "PostgreSQL", "MongoDB", "GraphQL"] },
-  { category: "Tools", items: ["Git", "Figma", "Docker", "Vercel"] },
+  { category: "前端", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
+  { category: "后端", items: ["Node.js", "PostgreSQL", "MongoDB", "GraphQL"] },
+  { category: "工具", items: ["Git", "Figma", "Docker", "Vercel"] },
 ];
 
 export default function AboutPage() {
@@ -11,7 +11,7 @@ export default function AboutPage() {
     <Container className="py-20">
       <section className="max-w-3xl">
         <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">
-          About Me
+          关于我
         </p>
         <h1 className="mt-4 text-4xl font-light tracking-tight text-white sm:text-5xl">
           创造优雅的数字体验

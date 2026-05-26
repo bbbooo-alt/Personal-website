@@ -4,10 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "首页" },
+  { href: "/about", label: "关于" },
+  { href: "/projects", label: "项目" },
+  { href: "/contact", label: "联系" },
 ];
 
 export default function Navbar() {

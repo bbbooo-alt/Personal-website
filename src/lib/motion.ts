@@ -40,7 +40,7 @@ export const staggerContainer: Variants = {
 export const scaleOnHover = {
   scale: 1.02,
   transition: {
-    type: "spring",
+    type: "spring" as const,
     stiffness: 400,
     damping: 17,
   },
@@ -53,7 +53,7 @@ export const tapScale = {
 export const cardHover = {
   y: -6,
   transition: {
-    type: "spring",
+    type: "spring" as const,
     stiffness: 300,
     damping: 20,
   },

@@ -6,7 +6,7 @@ export default function Footer() {
       <Container className="py-8">
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-sm text-zinc-500">
-            © 2024 尊敬的ggb大王. All rights reserved.
+            © 2024 尊敬的ggb大王. 保留所有权利。
           </p>
           <div className="flex gap-6 text-sm text-zinc-500">
             <a
