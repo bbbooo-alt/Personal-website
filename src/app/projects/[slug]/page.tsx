@@ -1,21 +1,23 @@
 "use client";
 
+import { use } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Calendar, Layers } from "lucide-react";
 import Container from "@/components/layout/Container";
 import Button from "@/components/ui/Button";
 import { getProjectBySlug, projects } from "@/data/projects";
-import { fadeUp, staggerContainer, scaleOnHover } from "@/lib/motion";
+import { fadeUp, staggerContainer } from "@/lib/motion";
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default function ProjectDetailPage({ params }: ProjectPageProps) {
-  const project = getProjectBySlug(params.slug);
+  const { slug } = use(params);
+  const project = getProjectBySlug(slug);
 
   if (!project) {
     return (
