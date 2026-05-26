@@ -1,8 +1,8 @@
 import Container from "@/components/Container";
-import { Mail, Github, Twitter, Linkedin } from "lucide-react";
+import { Mail, GithubIcon, Twitter, Linkedin } from "lucide-react";
 
 const socialLinks = [
-  { name: "GitHub", icon: Github, href: "https://github.com" },
+  { name: "GitHub", icon: GithubIcon, href: "https://github.com" },
   { name: "Twitter", icon: Twitter, href: "https://twitter.com" },
   { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
 ];
