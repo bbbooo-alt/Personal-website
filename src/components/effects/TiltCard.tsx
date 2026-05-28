@@ -11,6 +11,10 @@ interface TiltCardProps {
   glareEnabled?: boolean;
 }
 
+/**
+ * 3D 倾斜卡片组件
+ * 色彩规范：主色(青色) + 辅色(粉紫) + 中性色(白/灰)
+ */
 export default function TiltCard({
   children,
   className,
@@ -58,7 +62,7 @@ export default function TiltCard({
   return (
     <motion.div
       ref={cardRef}
-      className={cn("relative overflow-hidden", className)}
+      className={cn("relative overflow-hidden rounded-2xl", className)}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
@@ -78,18 +82,32 @@ export default function TiltCard({
     >
       {children}
 
-      {/* 光泽效果 */}
+      {/* 霓虹光泽效果 - 主色到辅色渐变 */}
       {glareEnabled && (
         <motion.div
-          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300"
+          className="pointer-events-none absolute inset-0"
           animate={{
-            opacity: isHovered ? 0.15 : 0,
+            opacity: isHovered ? 0.3 : 0,
           }}
+          transition={{ duration: 0.3 }}
           style={{
-            background: `radial-gradient(circle at ${glarePosition.x}% ${glarePosition.y}%, rgba(255,255,255,0.8) 0%, transparent 60%)`,
+            background: `radial-gradient(circle at ${glarePosition.x}% ${glarePosition.y}%, var(--accent-primary-glow) 0%, var(--accent-secondary-glow) 30%, transparent 70%)`,
+            mixBlendMode: 'screen',
           }}
         />
       )}
+
+      {/* 边缘光晕 - 使用主色 */}
+      <motion.div
+        className="pointer-events-none absolute inset-0 rounded-2xl"
+        animate={{
+          opacity: isHovered ? 1 : 0,
+        }}
+        transition={{ duration: 0.3 }}
+        style={{
+          boxShadow: 'inset 0 0 30px var(--accent-primary-subtle), 0 0 30px var(--accent-primary-subtle)',
+        }}
+      />
     </motion.div>
   );
 }

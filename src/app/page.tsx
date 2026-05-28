@@ -5,28 +5,32 @@ import ProjectCard from "@/components/project/ProjectCard";
 import TiltCard from "@/components/effects/TiltCard";
 import Terminal from "@/components/effects/Terminal";
 import { projects } from "@/data/projects";
-import { ArrowRight, Code2, Palette, Zap } from "lucide-react";
+import { ArrowRight, Code2, Brain, Layers } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 const features = [
   {
-    icon: Code2,
+    icon: Layers,
     title: "全栈开发",
-    description: "React, Next.js, TypeScript 生态",
+    description: "React, Next.js, Node.js, PostgreSQL",
   },
   {
-    icon: Palette,
-    title: "UI/UX 设计",
-    description: "Tailwind CSS, Framer Motion",
+    icon: Brain,
+    title: "AI 应用",
+    description: "OpenAI, LangChain, 智能助手开发",
   },
   {
-    icon: Zap,
-    title: "性能优化",
-    description: "Core Web Vitals, SEO",
+    icon: Code2,
+    title: "现代技术栈",
+    description: "TypeScript, Prisma, Tailwind CSS",
   },
 ];
 
+/**
+ * 首页组件
+ * 色彩规范：主色(青色) + 辅色(粉紫) + 中性色(白/灰)
+ */
 export default function HomePage() {
   const featuredProjects = projects.slice(0, 3);
 
@@ -42,9 +46,10 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400"
+                className="text-sm font-medium uppercase tracking-[0.3em]"
+                style={{ color: 'var(--accent-primary)' }}
               >
-                前端开发者
+                全栈开发者 · AI 应用爱好者
               </motion.p>
 
               <motion.h1
@@ -53,19 +58,18 @@ export default function HomePage() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="mt-6 text-5xl font-light tracking-tight text-white sm:text-6xl lg:text-7xl"
               >
-                尊敬的
-                <br />
-                <span className="font-normal">ggb大王</span>
+                ggb大王
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="mt-6 max-w-lg text-lg text-zinc-400"
+                className="mt-6 max-w-lg text-lg"
+                style={{ color: 'var(--foreground-muted)' }}
               >
-                专注于创造优雅且高性能的 Web 体验。
-                热爱现代前端技术栈，追求极致的用户体验。
+                热衷于构建智能全栈应用，探索 AI 与 Web 技术的无限可能。
+                从优雅的前端界面到强大的后端服务，再到智能 AI 集成，追求技术与体验的完美结合。
               </motion.p>
 
               <motion.div
@@ -76,14 +80,14 @@ export default function HomePage() {
               >
                 <Link
                   href="/projects"
-                  className="group inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-medium text-black transition-all duration-200 hover:bg-zinc-200 hover:scale-105 active:scale-95"
+                  className="group inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-medium text-black transition-all duration-200 hover:bg-white/90 hover:scale-105 active:scale-95"
                 >
                   查看项目
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900/50 px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:border-cyan-500/50 hover:bg-zinc-800"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:border-[var(--accent-primary)]/30 hover:bg-white/[0.06]"
                 >
                   联系我
                 </Link>
@@ -104,22 +108,31 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="border-y border-zinc-900 bg-zinc-950/30 py-20">
+      <section className="border-y border-white/[0.06] bg-white/[0.02] py-20">
         <Container>
           <div className="grid gap-8 sm:grid-cols-3">
-            {features.map((feature, index) => (
+            {features.map((feature) => (
               <TiltCard
                 key={feature.title}
-                className="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6 transition-colors hover:border-zinc-700"
+                className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 transition-colors hover:border-white/[0.12]"
                 tiltAmount={5}
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10">
-                  <feature.icon className="h-6 w-6 text-cyan-400" />
+                <div 
+                  className="flex h-12 w-12 items-center justify-center rounded-xl"
+                  style={{ backgroundColor: 'var(--accent-primary-subtle)' }}
+                >
+                  <feature.icon 
+                    className="h-6 w-6" 
+                    style={{ color: 'var(--accent-primary)' }}
+                  />
                 </div>
                 <h3 className="mt-4 text-lg font-medium text-white">
                   {feature.title}
                 </h3>
-                <p className="mt-2 text-sm text-zinc-400">
+                <p 
+                  className="mt-2 text-sm"
+                  style={{ color: 'var(--foreground-muted)' }}
+                >
                   {feature.description}
                 </p>
               </TiltCard>
@@ -133,7 +146,10 @@ export default function HomePage() {
         <Container>
           <div className="flex items-end justify-between">
             <div>
-              <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">
+              <p 
+                className="text-sm font-medium uppercase tracking-[0.3em]"
+                style={{ color: 'var(--accent-primary)' }}
+              >
                 精选项目
               </p>
               <h2 className="mt-4 text-3xl font-light tracking-tight text-white">
@@ -142,7 +158,8 @@ export default function HomePage() {
             </div>
             <Link
               href="/projects"
-              className="group hidden items-center gap-2 text-sm text-zinc-400 transition-colors hover:text-white sm:inline-flex"
+              className="group hidden items-center gap-2 text-sm transition-colors hover:text-white sm:inline-flex"
+              style={{ color: 'var(--foreground-muted)' }}
             >
               查看全部
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -164,7 +181,8 @@ export default function HomePage() {
           <div className="mt-8 text-center sm:hidden">
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 text-sm text-zinc-400 transition-colors hover:text-white"
+              className="inline-flex items-center gap-2 text-sm transition-colors hover:text-white"
+              style={{ color: 'var(--foreground-muted)' }}
             >
               查看全部项目
               <ArrowRight className="h-4 w-4" />

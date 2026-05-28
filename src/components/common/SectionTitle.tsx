@@ -11,6 +11,10 @@ interface SectionTitleProps {
   className?: string;
 }
 
+/**
+ * 区块标题组件
+ * 色彩规范：主色(青色) + 辅色(粉紫) + 中性色(白/灰)
+ */
 export default function SectionTitle({
   title,
   subtitle,
@@ -30,7 +34,10 @@ export default function SectionTitle({
       )}
     >
       {subtitle && (
-        <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">
+        <p 
+          className="text-sm font-medium uppercase tracking-[0.3em]"
+          style={{ color: 'var(--accent-primary)' }}
+        >
           {subtitle}
         </p>
       )}

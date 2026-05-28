@@ -14,6 +14,10 @@ interface ButtonProps {
   type?: "button" | "submit" | "reset";
 }
 
+/**
+ * 按钮组件
+ * 色彩规范：主色(青色) + 辅色(粉紫) + 中性色(白/灰)
+ */
 export default function Button({
   children,
   variant = "primary",
@@ -25,15 +29,15 @@ export default function Button({
   type = "button",
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 disabled:opacity-50 disabled:cursor-not-allowed";
+    "inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/50 disabled:opacity-50 disabled:cursor-not-allowed";
 
   const variants = {
     primary:
-      "bg-white text-black hover:bg-zinc-200 active:scale-95",
+      "bg-white text-black hover:bg-white/90 active:scale-95",
     secondary:
-      "bg-zinc-800 text-white border border-zinc-700 hover:bg-zinc-700 hover:border-zinc-600 active:scale-95",
+      "bg-white/[0.03] text-white border border-white/[0.08] hover:bg-white/[0.06] hover:border-[var(--accent-primary)]/30 active:scale-95",
     ghost:
-      "bg-transparent text-zinc-400 hover:text-white hover:bg-zinc-800/50",
+      "bg-transparent text-white/50 hover:text-white hover:bg-white/[0.03]",
   };
 
   const sizes = {

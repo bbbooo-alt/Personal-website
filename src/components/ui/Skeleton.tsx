@@ -4,11 +4,15 @@ interface SkeletonProps {
   className?: string;
 }
 
+/**
+ * 骨架屏组件
+ * 色彩规范：主色(青色) + 辅色(粉紫) + 中性色(白/灰)
+ */
 export function Skeleton({ className }: SkeletonProps) {
   return (
     <div
       className={cn(
-        "animate-pulse rounded-xl bg-zinc-800/50",
+        "animate-pulse rounded-xl bg-white/[0.06]",
         className
       )}
     />
@@ -17,7 +21,7 @@ export function Skeleton({ className }: SkeletonProps) {
 
 export function ProjectCardSkeleton() {
   return (
-    <div className="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6">
+    <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6">
       <div className="flex items-start justify-between">
         <div className="space-y-2">
           <Skeleton className="h-6 w-32" />

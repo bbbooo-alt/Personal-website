@@ -1,17 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
+  /* 核心色彩系统 - Dark Neon Gradient
+   * 严格遵循：主色 1 + 辅色 1 + 点缀 1 原则
+   * 主色：青色 - 标题强调、按钮、关键视觉点
+   * 辅色：粉紫 - 渐变过渡、氛围填充
+   * 点缀：白色/中性 - 文本、卡片、结构分割
+   */
+  --background: #0a0a0f;
+  --background-secondary: #0f0f1e;
   --foreground: #fafafa;
-  --accent: #06b6d4;
-  --muted: #71717a;
+  --foreground-muted: rgba(255, 255, 255, 0.5);
+  
+  /* 主色 - 青色能量 */
+  --accent-primary: #06b6d4;
+  --accent-primary-glow: rgba(6, 182, 212, 0.3);
+  --accent-primary-subtle: rgba(6, 182, 212, 0.1);
+  
+  /* 辅色 - 粉紫能量 */
+  --accent-secondary: #a855f7;
+  --accent-secondary-glow: rgba(168, 85, 247, 0.25);
+  --accent-secondary-subtle: rgba(168, 85, 247, 0.1);
+  
+  /* 结构色 - 中性 */
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-hover: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(6, 182, 212, 0.3);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-accent: var(--accent);
-  --color-muted: var(--muted);
+  --color-accent: var(--accent-primary);
+  --color-muted: var(--foreground-muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -29,7 +51,81 @@ body {
   color: var(--foreground);
 }
 
+/* 文本选择 - 青色光晕 */
 ::selection {
-  background: rgba(6, 182, 212, 0.3);
+  background: var(--accent-primary-glow);
   color: white;
+  text-shadow: 0 0 10px var(--accent-primary);
+}
+
+/* 滚动条 - 完全隐藏但保留滚动功能 */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* 玻璃态工具类 */
+.glass {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+
+.glass-hover:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-hover);
+  box-shadow: 0 0 20px var(--accent-primary-glow);
+}
+
+/* 光晕文字效果 */
+.text-glow {
+  text-shadow: 0 0 20px var(--accent-primary-glow);
+}
+
+.text-glow-strong {
+  text-shadow: 
+    0 0 10px var(--accent-primary-glow),
+    0 0 40px var(--accent-primary-glow),
+    0 0 80px var(--accent-secondary-glow);
+}
+
+/* 渐变边框 */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
 }

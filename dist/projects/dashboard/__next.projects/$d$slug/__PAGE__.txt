@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[76337,["/_next/static/chunks/0a-l0uqp_m1-x.js","/_next/static/chunks/06v49img2-6n7.js","/_next/static/chunks/0mkh-c_j~pwmt.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0lwzrira0q6fs.js"],"default"]
+3:I[97367,["/_next/static/chunks/0a-l0uqp_m1-x.js","/_next/static/chunks/06v49img2-6n7.js","/_next/static/chunks/0mkh-c_j~pwmt.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"project":{"slug":"dashboard","title":"数据仪表盘 UI","description":"现代化的管理后台，具有实时数据可视化和响应式设计。","longDescription":"一个综合性的数据分析和管理后台。具有实时图表、用户管理和基于角色的访问控制功能。在构建时充分考虑了性能和可扩展性。","tech":["React","D3.js","TypeScript","Node.js"],"github":"https://github.com","demo":"https://demo.com","image":"/images/dashboard.jpg","features":["实时数据可视化","使用 D3.js 的交互式图表","用户认证系统","基于角色的访问控制","深色模式支持"],"year":"2024"}}],[["$","script","script-0",{"src":"/_next/static/chunks/0lwzrira0q6fs.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"hMrpI4vEiDp7XRc91H_tf"}
+5:null

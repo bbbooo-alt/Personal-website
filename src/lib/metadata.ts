@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 
 const siteConfig = {
-  name: process.env.NEXT_PUBLIC_SITE_NAME || "尊敬的ggb大王",
+  name: process.env.NEXT_PUBLIC_SITE_NAME || "ggb大王",
   description:
     process.env.NEXT_PUBLIC_SITE_DESCRIPTION ||
-    "前端开发者，专注于创造优雅且高性能的 Web 体验",
+    "全栈开发者 · AI 应用爱好者，热衷于构建智能全栈应用",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://ggb.dev",
 };
 

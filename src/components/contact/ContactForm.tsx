@@ -122,11 +122,11 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="姓名"
             className={cn(
-              "w-full rounded-xl border bg-black/50 px-4 py-3 text-white placeholder-zinc-600 transition-colors focus:outline-none",
-              errors.name
-                ? "border-red-500/50 focus:border-red-500"
-                : "border-zinc-800 focus:border-cyan-500/50"
-            )}
+                "w-full rounded-xl border bg-black/50 px-4 py-3 text-white placeholder-white/30 transition-colors focus:outline-none",
+                errors.name
+                  ? "border-red-500/50 focus:border-red-500"
+                  : "border-white/[0.08] focus:border-[var(--accent-primary)]/50"
+              )}
           />
           {errors.name && (
             <p className="mt-1 text-sm text-red-400">{errors.name}</p>
@@ -140,11 +140,11 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="邮箱"
             className={cn(
-              "w-full rounded-xl border bg-black/50 px-4 py-3 text-white placeholder-zinc-600 transition-colors focus:outline-none",
-              errors.email
-                ? "border-red-500/50 focus:border-red-500"
-                : "border-zinc-800 focus:border-cyan-500/50"
-            )}
+                "w-full rounded-xl border bg-black/50 px-4 py-3 text-white placeholder-white/30 transition-colors focus:outline-none",
+                errors.email
+                  ? "border-red-500/50 focus:border-red-500"
+                  : "border-white/[0.08] focus:border-[var(--accent-primary)]/50"
+              )}
           />
           {errors.email && (
             <p className="mt-1 text-sm text-red-400">{errors.email}</p>
@@ -160,11 +160,11 @@ export default function ContactForm() {
           rows={4}
           placeholder="请输入您的消息..."
           className={cn(
-            "w-full resize-none rounded-xl border bg-black/50 px-4 py-3 text-white placeholder-zinc-600 transition-colors focus:outline-none",
-            errors.content
-              ? "border-red-500/50 focus:border-red-500"
-              : "border-zinc-800 focus:border-cyan-500/50"
-          )}
+                "w-full resize-none rounded-xl border bg-black/50 px-4 py-3 text-white placeholder-white/30 transition-colors focus:outline-none",
+                errors.content
+                  ? "border-red-500/50 focus:border-red-500"
+                  : "border-white/[0.08] focus:border-[var(--accent-primary)]/50"
+              )}
         />
         {errors.content && (
           <p className="mt-1 text-sm text-red-400">{errors.content}</p>

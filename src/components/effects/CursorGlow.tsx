@@ -3,6 +3,10 @@
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
+/**
+ * 光标光晕效果组件
+ * 色彩规范：主色(青色) + 辅色(粉紫) + 中性色(白/灰)
+ */
 export default function CursorGlow() {
   const [isVisible, setIsVisible] = useState(false);
   const cursorX = useMotionValue(-100);
@@ -35,7 +39,7 @@ export default function CursorGlow() {
 
   return (
     <>
-      {/* 主光标光晕 */}
+      {/* 主光标光晕 - 使用主色 */}
       <motion.div
         className="pointer-events-none fixed inset-0 z-50 hidden lg:block"
         style={{
@@ -49,20 +53,21 @@ export default function CursorGlow() {
             y: cursorYSpring,
             translateX: "-50%",
             translateY: "-50%",
-            background: "radial-gradient(circle, rgba(6,182,212,0.15) 0%, rgba(6,182,212,0.05) 40%, transparent 70%)",
+            background: "radial-gradient(circle, var(--accent-primary-glow) 0%, var(--accent-primary-subtle) 40%, transparent 70%)",
           }}
         />
       </motion.div>
 
-      {/* 小光标点 */}
+      {/* 小光标点 - 使用主色 */}
       <motion.div
-        className="pointer-events-none fixed z-50 hidden h-2 w-2 rounded-full bg-cyan-400/80 mix-blend-screen lg:block"
+        className="pointer-events-none fixed z-50 hidden h-2 w-2 rounded-full mix-blend-screen lg:block"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
           translateX: "-50%",
           translateY: "-50%",
           opacity: isVisible ? 1 : 0,
+          backgroundColor: 'var(--accent-primary)',
         }}
       />
     </>
