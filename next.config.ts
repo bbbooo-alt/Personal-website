@@ -3,6 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: 'export',
   distDir: 'dist',
+  basePath: '/Personal-website',
+  assetPrefix: '/Personal-website',
   images: {
     unoptimized: true,
   },
